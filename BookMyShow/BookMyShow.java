@@ -591,6 +591,16 @@ class CancelBooking implements ICancelBooking {
     }
 }
 
+interface IViewCancelBooking {
+    void cancelBooking(String bookingID);
+}
+class ViewCancelBookingImpl implements IViewCancelBooking {
+    @Override
+    public void cancelBooking(String bookingID) {
+        System.out.println("cancelling booking with bookingID: " + bookingID);
+    }
+}
+
 
 public class BookMyShow {
     public static void main(String[] args) {
@@ -655,6 +665,9 @@ public class BookMyShow {
 
         CancelBooking cancelBooking = new CancelBooking();
         cancelBooking.cancelBooking("1");
+
+        ViewCancelBookingImpl viewCancelBooking = new ViewCancelBookingImpl();
+        viewCancelBooking.cancelBooking("1");
 
     }
 }
